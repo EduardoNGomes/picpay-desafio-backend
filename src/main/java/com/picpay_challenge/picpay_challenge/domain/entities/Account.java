@@ -1,6 +1,7 @@
 package com.picpay_challenge.picpay_challenge.domain.entities;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import com.picpay_challenge.picpay_challenge.core.entities.Entity;
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
@@ -12,16 +13,16 @@ public class Account extends Entity<IAccount> {
     super(props, id);
   }
 
-  public void increaseBalance(Double value) {
-    this.props.balance += value;
-  }
-
-  public void decreaseBalance(Double value) {
-    this.props.balance += value;
-  }
-
   public Double getBalance() {
     return this.props.balance;
+  }
+
+  public UUID geOwnerIdValue() {
+    return this.props.ownerID.toValue();
+  }
+
+  public String getOwnerIdString() {
+    return this.props.ownerID.toString();
   }
 
   static Account create(IAccount props, Optional<UniqueEntityID> id) {
