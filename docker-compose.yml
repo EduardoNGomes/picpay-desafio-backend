@@ -2,11 +2,11 @@ version: '3.8'
 
 services:
   postgres:
-    container_name: gestao_vagas_postgres
+    container_name: picpay_challenge
     image: postgres
     ports:
       - 5432:5432
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=gestao_vagas
+      - POSTGRES_DB=picpay_challenge
