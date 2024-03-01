@@ -1,33 +1,38 @@
 package com.picpay_challenge.picpay_challenge.domain.entities;
 
-import java.util.Optional;
-import java.util.UUID;
-
 import com.picpay_challenge.picpay_challenge.core.entities.Entity;
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.domain.interfaces.IAccount;
 
+import java.util.Optional;
+import java.util.UUID;
+
 public class Account extends Entity<IAccount> {
 
-  protected Account(IAccount props, Optional<UniqueEntityID> id) {
-    super(props, id);
-  }
+	protected Account(IAccount props, Optional<UniqueEntityID> id) {
 
-  public Double getBalance() {
-    return this.props.balance;
-  }
+		super(props, id);
+	}
 
-  public UUID geOwnerIdValue() {
-    return this.props.ownerID.toValue();
-  }
+	static Account create(IAccount props, Optional<UniqueEntityID> id) {
 
-  public String getOwnerIdString() {
-    return this.props.ownerID.toString();
-  }
+		return new Account(props, id);
 
-  static Account create(IAccount props, Optional<UniqueEntityID> id) {
-    var account = new Account(props, id);
+	}
 
-    return account;
-  }
+	public Double getBalance() {
+
+		return this.props.balance;
+	}
+
+	public UUID geOwnerIdValue() {
+
+		return this.props.ownerID.toValue();
+	}
+
+	public String getOwnerIdString() {
+
+		return this.props.ownerID.toString();
+	}
+
 }
