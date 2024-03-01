@@ -28,7 +28,8 @@ public class CreateUserUseCase {
 		this.userRepository = userRepository;
 	}
 
-	public void execute(CreateUserUseCaseDTO dto) throws UserAlredyExistException {
+	public void execute(CreateUserUseCaseDTO dto) throws
+			UserAlredyExistException {
 
 		var cpf = new UniqueCPF(dto.getCpf());
 		var email = new UniqueEmail(dto.getEmail());
@@ -41,7 +42,9 @@ public class CreateUserUseCase {
 
 		dto.setPassword(passwordEncoder.encoder(dto.getPassword()));
 
-		var props = IUserSeller.builder().email(email).firstName(dto.getFirstName()).lastName(dto.getLastName()).password(dto.getPassword()).build();
+		var props = IUserSeller.builder().email(email)
+				.firstName(dto.getFirstName()).lastName(dto.getLastName())
+				.password(dto.getPassword()).build();
 
 		var userToCreate = User.create(cpf, props, Optional.empty());
 

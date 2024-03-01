@@ -14,7 +14,7 @@ public abstract class Entity<Props> {
 		this.props = props;
 
 		if (id.isEmpty()) {
-			this.id = new UniqueEntityID(null);
+			this.id = new UniqueEntityID(Optional.empty());
 		} else {
 			this.id = id.get();
 		}
