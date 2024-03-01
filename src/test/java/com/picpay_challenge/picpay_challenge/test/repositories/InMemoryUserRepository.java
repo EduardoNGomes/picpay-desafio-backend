@@ -5,13 +5,11 @@ import com.picpay_challenge.picpay_challenge.core.repositories.UserRepository;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCPF;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
 import com.picpay_challenge.picpay_challenge.domain.entities.User;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
 public class InMemoryUserRepository implements UserRepository {
 
 	public List<User> items = new ArrayList<>();
