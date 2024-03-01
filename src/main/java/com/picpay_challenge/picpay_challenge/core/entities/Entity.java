@@ -3,27 +3,31 @@ package com.picpay_challenge.picpay_challenge.core.entities;
 import java.util.Optional;
 import java.util.UUID;
 
+@SuppressWarnings("ALL")
 public abstract class Entity<Props> {
 
-  private UniqueEntityID id;
+	protected Props props;
+	private UniqueEntityID id;
 
-  public UUID getIdValue() {
-    return this.id.toValue();
-  }
+	protected Entity(Props props, Optional<UniqueEntityID> id) {
 
-  public String getIdString() {
-    return this.id.toString();
-  }
+		this.props = props;
 
-  protected Props props;
+		if (id.isEmpty()) {
+			this.id = new UniqueEntityID(null);
+		} else {
+			this.id = id.get();
+		}
+	}
 
-  protected Entity(Props props, Optional<UniqueEntityID> id) {
-    this.props = props;
+	public UUID getIdValue() {
 
-    if (id.isEmpty()) {
-      this.id = new UniqueEntityID(null);
-    } else {
-      this.id = id.get();
-    }
-  }
+		return this.id.toValue();
+	}
+
+	public String getIdString() {
+
+		return this.id.toString();
+	}
+
 }

@@ -4,26 +4,32 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class UniqueEntityID {
-  private UUID value;
 
-  public UniqueEntityID(Optional<UUID> value) {
-    if (value.isPresent()) {
-      this.value = value.get();
-    } else {
-      this.value = UUID.randomUUID();
-    }
+	private final UUID value;
 
-  }
+	public UniqueEntityID(Optional<UUID> value) {
 
-  public UUID toValue() {
-    return this.value;
-  }
+		if (value.isEmpty()) {
+			this.value = UUID.randomUUID();
+		} else {
+			this.value = value.get();
+		}
 
-  public String toString() {
-    return this.value.toString();
-  }
+	}
 
-  public boolean equals(UniqueEntityID id) {
-    return id.toValue() == this.value;
-  }
+	public UUID toValue() {
+
+		return this.value;
+	}
+
+	public String toString() {
+
+		return this.value.toString();
+	}
+
+	public boolean equals(UniqueEntityID id) {
+
+		return id.toValue() == this.value;
+	}
+
 }
