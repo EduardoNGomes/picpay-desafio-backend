@@ -28,7 +28,7 @@ public class CreateUserUseCase {
 		this.userRepository = userRepository;
 	}
 
-	public void execute(CreateUserUseCaseDTO dto) throws
+	public String execute(CreateUserUseCaseDTO dto) throws
 			UserAlredyExistException {
 
 		var cpf = new UniqueCPF(dto.getCpf());
@@ -49,6 +49,8 @@ public class CreateUserUseCase {
 		var userToCreate = User.create(cpf, props, Optional.empty());
 
 		userRepository.create(userToCreate);
+
+		return "created";
 	}
 
 }
