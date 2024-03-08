@@ -4,21 +4,21 @@ import com.picpay_challenge.picpay_challenge.core.entities.Entity;
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCNPJ;
 import com.picpay_challenge.picpay_challenge.domain.interfaces.IUserSeller;
-
 import java.util.Optional;
 
 public class Seller extends Entity<IUserSeller> {
 
-	private UniqueCNPJ cnpj;
+	private final UniqueCNPJ cnpj;
 
-	protected Seller(IUserSeller props, Optional<UniqueEntityID> id) {
+	protected Seller(UniqueCNPJ cnpj, IUserSeller props, Optional<UniqueEntityID> id) {
 
 		super(props, id);
+		this.cnpj = cnpj;
 	}
 
-	static Seller create(IUserSeller props, Optional<UniqueEntityID> id) {
+	public static Seller create(UniqueCNPJ cnpj, IUserSeller props, Optional<UniqueEntityID> id) {
 
-		return new Seller(props, id);
+		return new Seller(cnpj, props, id);
 
 	}
 

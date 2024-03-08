@@ -1,17 +1,16 @@
 package com.picpay_challenge.picpay_challenge.domain.useCases.User;
 
 import com.picpay_challenge.picpay_challenge.core.cryptography.PasswordEncoder;
-import com.picpay_challenge.picpay_challenge.core.exceptions.UserAlredyExistException;
+import com.picpay_challenge.picpay_challenge.core.exceptions.UserAlreadyExistException;
 import com.picpay_challenge.picpay_challenge.core.repositories.UserRepository;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCPF;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
 import com.picpay_challenge.picpay_challenge.domain.entities.User;
 import com.picpay_challenge.picpay_challenge.domain.interfaces.IUserSeller;
 import com.picpay_challenge.picpay_challenge.domain.useCases.User.dto.CreateUserUseCaseDTO;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class CreateUserUseCase {
@@ -29,7 +28,7 @@ public class CreateUserUseCase {
 	}
 
 	public String execute(CreateUserUseCaseDTO dto) throws
-			UserAlredyExistException {
+			UserAlreadyExistException {
 
 		var cpf = new UniqueCPF(dto.getCpf());
 		var email = new UniqueEmail(dto.getEmail());
@@ -37,7 +36,7 @@ public class CreateUserUseCase {
 		var userExist = userRepository.findByEmailOrCpf(email, cpf);
 
 		if (userExist.isPresent()) {
-			throw new UserAlredyExistException();
+			throw new UserAlreadyExistException();
 		}
 
 		dto.setPassword(passwordEncoder.encoder(dto.getPassword()));

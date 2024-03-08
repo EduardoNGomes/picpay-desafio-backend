@@ -1,16 +1,15 @@
 package com.picpay_challenge.picpay_challenge.core.vo;
 
-import java.util.Optional;
 import java.util.UUID;
 
 public class UniqueCNPJ {
 
 	private final String cnpj;
 
-	public UniqueCNPJ(Optional<String> cnpj) {
+	public UniqueCNPJ(String cnpj) {
 
-		if (cnpj.isPresent()) {
-			this.cnpj = cnpj.get();
+		if (cnpj.isEmpty()) {
+			this.cnpj = cnpj;
 		} else {
 			this.cnpj = UUID.randomUUID().toString();
 		}
