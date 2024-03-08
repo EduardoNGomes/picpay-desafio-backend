@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 public class CreateUserUseCaseWithMocksTest {
 
 	@InjectMocks
-	private CreateUserUseCase createUserUseCase;
+	private CreateUserUseCase useCase;
 
 	@Mock
 	private UserRepository repository;
@@ -50,7 +50,7 @@ public class CreateUserUseCaseWithMocksTest {
 	@Test
 	public void should_be_able_to_create_a_new_user() {
 
-		var result = this.createUserUseCase.execute(this.user);
+		var result = this.useCase.execute(this.user);
 		assertThat(result).isEqualTo("created");
 
 	}
@@ -62,7 +62,7 @@ public class CreateUserUseCaseWithMocksTest {
 		when(repository.findByEmailOrCpf(ArgumentMatchers.any(), ArgumentMatchers.any())).thenReturn(Optional.of(UserFactory.CreateUser(Optional.empty())));
 
 		final UserAlreadyExistException e = assertThrows(UserAlreadyExistException.class, () -> {
-			this.createUserUseCase.execute(this.user);
+			this.useCase.execute(this.user);
 		});
 
 		assertThat(e).isNotNull();
