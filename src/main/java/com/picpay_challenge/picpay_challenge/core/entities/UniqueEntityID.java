@@ -3,6 +3,7 @@ package com.picpay_challenge.picpay_challenge.core.entities;
 import java.util.Optional;
 import java.util.UUID;
 
+@SuppressWarnings("OptionalIsPresent")
 public class UniqueEntityID {
 
 	private final UUID value;
