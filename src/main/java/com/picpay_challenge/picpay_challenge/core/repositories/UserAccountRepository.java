@@ -1,13 +1,18 @@
 package com.picpay_challenge.picpay_challenge.core.repositories;
 
+import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.domain.entities.Account;
 
 public interface UserAccountRepository {
 
-	Account create(Account account);
+	Account findByOwnerId(UniqueEntityID ownerId);
 
-	void increaseBalance(Double value);
+	Account findById(UniqueEntityID ownerId);
+	
+	void create(Account account);
 
-	void decreaseBalance(Double value);
+	void increaseBalance(Double value, UniqueEntityID id);
+
+	void decreaseBalance(Double value, UniqueEntityID id);
 
 }

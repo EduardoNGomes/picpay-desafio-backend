@@ -5,10 +5,22 @@ import com.picpay_challenge.picpay_challenge.core.repositories.UserAccountReposi
 import com.picpay_challenge.picpay_challenge.domain.entities.Account;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
+@Getter
 public class InMemoryUserAccountRepository implements UserAccountRepository {
 
 	List<Account> items = new ArrayList<>();
+
+	@Override
+	public Account findByOwnerId(UniqueEntityID ownerId) {
+		return null;
+	}
+
+	@Override
+	public Account findById(UniqueEntityID ownerId) {
+		return null;
+	}
 
 	@Override
 	public void create(Account account) {

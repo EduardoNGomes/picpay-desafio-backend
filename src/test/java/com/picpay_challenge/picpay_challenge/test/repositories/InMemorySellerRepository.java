@@ -8,9 +8,11 @@ import com.picpay_challenge.picpay_challenge.domain.entities.Seller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import lombok.Getter;
 
+@Getter
 public class InMemorySellerRepository implements SellerRepository {
-	public List<Seller> items = new ArrayList<>();
+	List<Seller> items = new ArrayList<>();
 
 	@Override
 	public Optional<Seller> findByEmailOrCnpj(UniqueEmail email, UniqueCNPJ cnpj) {

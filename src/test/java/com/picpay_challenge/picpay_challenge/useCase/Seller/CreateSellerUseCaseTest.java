@@ -41,9 +41,9 @@ public class CreateSellerUseCaseTest {
 		var result = this.useCase.execute(this.sellerToCreate);
 
 		assertThat(result).isEqualTo("created");
-		assertThat(repository.items.size()).isEqualTo(1);
+		assertThat(repository.getItems().size()).isEqualTo(1);
 
-		assertThat(repository.items.getFirst()
+		assertThat(repository.getItems().getFirst()
 				.getPassword()).isEqualTo("123456-hashed");
 	}
 

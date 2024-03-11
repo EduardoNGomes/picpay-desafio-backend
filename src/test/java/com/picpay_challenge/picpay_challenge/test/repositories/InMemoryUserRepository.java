@@ -5,14 +5,14 @@ import com.picpay_challenge.picpay_challenge.core.repositories.UserRepository;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCPF;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
 import com.picpay_challenge.picpay_challenge.domain.entities.User;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import lombok.Getter;
 
+@Getter
 public class InMemoryUserRepository implements UserRepository {
-
-	public List<User> items = new ArrayList<>();
+	List<User> items = new ArrayList<>();
 
 	@Override
 	public Optional<User> findByEmailOrCpf(UniqueEmail email, UniqueCPF cpf) {

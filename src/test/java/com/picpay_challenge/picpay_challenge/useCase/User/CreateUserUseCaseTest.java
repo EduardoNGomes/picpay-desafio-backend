@@ -4,6 +4,7 @@ import com.picpay_challenge.picpay_challenge.core.exceptions.UserAlreadyExistExc
 import com.picpay_challenge.picpay_challenge.domain.useCases.User.CreateUserUseCase;
 import com.picpay_challenge.picpay_challenge.domain.useCases.User.dto.CreateUserUseCaseDTO;
 import com.picpay_challenge.picpay_challenge.test.cryptography.MockPasswordEncoder;
+import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryUserAccountRepository;
 import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryUserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -17,13 +18,16 @@ public class CreateUserUseCaseTest {
 	private final CreateUserUseCase useCase;
 
 	private final InMemoryUserRepository repository;
+	private final InMemoryUserAccountRepository accountRepository;
+
 	private CreateUserUseCaseDTO userToCreate;
 
 	public CreateUserUseCaseTest() {
 
 		MockPasswordEncoder mockPasswordEncoder = new MockPasswordEncoder();
 		this.repository = new InMemoryUserRepository();
-		this.useCase = new CreateUserUseCase(repository, mockPasswordEncoder);
+		this.accountRepository = new InMemoryUserAccountRepository();
+		this.useCase = new CreateUserUseCase(repository, mockPasswordEncoder, accountRepository);
 	}
 
 	@BeforeEach
@@ -41,9 +45,10 @@ public class CreateUserUseCaseTest {
 		var result = this.useCase.execute(this.userToCreate);
 
 		assertThat(result).isEqualTo("created");
-		assertThat(repository.items.size()).isEqualTo(1);
+		assertThat(repository.getItems().size()).isEqualTo(1);
+		assertThat(accountRepository.getItems().size()).isEqualTo(1);
 
-		assertThat(repository.items.getFirst()
+		assertThat(repository.getItems().getFirst()
 				.getPassword()).isEqualTo("123456-hashed");
 	}
 
