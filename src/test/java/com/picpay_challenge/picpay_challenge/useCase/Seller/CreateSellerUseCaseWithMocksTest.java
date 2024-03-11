@@ -48,16 +48,16 @@ public class CreateSellerUseCaseWithMocksTest {
 
 	@DisplayName("Should be able to create a new seller")
 	@Test
-	public void should_be_able_to_create_a_new_user() {
+	public void should_be_able_to_create_a_new_seller() {
 
 		var result = this.useCase.execute(this.seller);
 		assertThat(result).isEqualTo("created");
 
 	}
 
-	@DisplayName("Should not be able to create a new user if user already exist")
+	@DisplayName("Should not be able to create a new seller if user already exist")
 	@Test
-	public void should_be_not_able_to_create_a_new_user_if_user_already_exist() {
+	public void should_be_not_able_to_create_a_new_seller_if_user_already_exist() {
 
 		when(repository.findByEmailOrCnpj(ArgumentMatchers.any(), ArgumentMatchers.any())).thenReturn(Optional.of(SellerFactory.CreateSeller(Optional.empty())));
 
