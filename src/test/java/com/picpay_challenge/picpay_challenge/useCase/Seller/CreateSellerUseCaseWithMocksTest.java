@@ -2,6 +2,7 @@ package com.picpay_challenge.picpay_challenge.useCase.Seller;
 
 import com.picpay_challenge.picpay_challenge.core.cryptography.PasswordEncoder;
 import com.picpay_challenge.picpay_challenge.core.exceptions.SellerAlreadyExistException;
+import com.picpay_challenge.picpay_challenge.core.repositories.SellerAccountRepository;
 import com.picpay_challenge.picpay_challenge.core.repositories.SellerRepository;
 import com.picpay_challenge.picpay_challenge.domain.useCases.Seller.CreateSellerUseCase;
 import com.picpay_challenge.picpay_challenge.domain.useCases.Seller.dto.CreateSellerUseCaseDTO;
@@ -31,6 +32,9 @@ public class CreateSellerUseCaseWithMocksTest {
 
 	@Mock
 	private PasswordEncoder passwordEncoder;
+
+	@Mock
+	private SellerAccountRepository sellerAccountRepository;
 
 	private CreateSellerUseCaseDTO seller;
 
@@ -66,6 +70,7 @@ public class CreateSellerUseCaseWithMocksTest {
 		assertThat(e).isNotNull();
 
 		verifyNoInteractions(passwordEncoder);
+		verifyNoInteractions(sellerAccountRepository);
 
 	}
 
