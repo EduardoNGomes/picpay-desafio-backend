@@ -1,14 +1,20 @@
 package com.picpay_challenge.picpay_challenge.domain.useCases.Seller;
 
 import com.picpay_challenge.picpay_challenge.core.cryptography.PasswordEncoder;
+import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.exceptions.SellerAlreadyExistException;
+import com.picpay_challenge.picpay_challenge.core.repositories.SellerAccountRepository;
 import com.picpay_challenge.picpay_challenge.core.repositories.SellerRepository;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCNPJ;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
+import com.picpay_challenge.picpay_challenge.domain.entities.Account;
 import com.picpay_challenge.picpay_challenge.domain.entities.Seller;
+import com.picpay_challenge.picpay_challenge.domain.enums.Roles;
+import com.picpay_challenge.picpay_challenge.domain.interfaces.IAccount;
 import com.picpay_challenge.picpay_challenge.domain.interfaces.IUserSeller;
 import com.picpay_challenge.picpay_challenge.domain.useCases.Seller.dto.CreateSellerUseCaseDTO;
 import java.util.Optional;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class CreateSellerUseCase {
@@ -16,12 +22,18 @@ public class CreateSellerUseCase {
 
 	private final PasswordEncoder passwordEncoder;
 
+	private final SellerAccountRepository sellerAccountRepository;
+
 	@Autowired
-	public CreateSellerUseCase(SellerRepository sellerRepository, PasswordEncoder passwordEncoder) {
+	public CreateSellerUseCase(SellerRepository sellerRepository, PasswordEncoder passwordEncoder, SellerAccountRepository sellerAccountRepository) {
 
 		this.passwordEncoder = passwordEncoder;
 
 		this.sellerRepository = sellerRepository;
+
+		this.sellerAccountRepository = sellerAccountRepository;
+
+
 	}
 
 	public String execute(CreateSellerUseCaseDTO dto) throws
@@ -45,6 +57,16 @@ public class CreateSellerUseCase {
 		var sellerToCreate = Seller.create(cnpj, props, Optional.empty());
 
 		sellerRepository.create(sellerToCreate);
+
+		var id = new UniqueEntityID(Optional.ofNullable(sellerToCreate.getIdValue()));
+
+		var accountProps = IAccount.builder().balance(0.0).ownerID(id).build();
+
+		var accountId = Optional.of(new UniqueEntityID(Optional.of(UUID.randomUUID())));
+
+		var account = Account.create(accountProps, accountId, Roles.SELLER);
+
+		sellerAccountRepository.create(account);
 
 		return "created";
 	}

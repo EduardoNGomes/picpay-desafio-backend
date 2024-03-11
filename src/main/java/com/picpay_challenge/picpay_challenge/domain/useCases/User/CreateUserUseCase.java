@@ -26,16 +26,16 @@ public class CreateUserUseCase {
 	private final PasswordEncoder passwordEncoder;
 
 
-	private final UserAccountRepository accountRepository;
+	private final UserAccountRepository userAccountRepository;
 
 	@Autowired
-	public CreateUserUseCase(UserRepository userRepository, PasswordEncoder passwordEncoder, UserAccountRepository accountRepository) {
+	public CreateUserUseCase(UserRepository userRepository, PasswordEncoder passwordEncoder, UserAccountRepository userAccountRepository) {
 
 		this.passwordEncoder = passwordEncoder;
 
 		this.userRepository = userRepository;
 
-		this.accountRepository = accountRepository;
+		this.userAccountRepository = userAccountRepository;
 
 	}
 
@@ -69,7 +69,7 @@ public class CreateUserUseCase {
 
 		var account = Account.create(accountProps, accountId, Roles.USER);
 
-		accountRepository.create(account);
+		userAccountRepository.create(account);
 
 		return "created";
 	}
