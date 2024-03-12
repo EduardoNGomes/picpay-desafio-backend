@@ -17,7 +17,7 @@ public class UniqueEmail {
 
 	public boolean equals(UniqueEmail email) {
 
-		return email.toString().equals(this.email);
+		return email.getValue().equals(this.email);
 	}
 
 }
