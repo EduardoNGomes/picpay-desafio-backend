@@ -12,10 +12,8 @@ import org.springframework.stereotype.Service;
 public class AuthenticateUseCase {
 
 	private final AuthenticateRepository authenticateRepository;
-
-	private final PasswordCompare passwordCompare;
-
 	private final Encrypt encrypt;
+	private final PasswordCompare passwordCompare;
 
 	@Autowired
 	private AuthenticateUseCase(AuthenticateRepository authenticateRepository, PasswordCompare passwordCompare, Encrypt encrypt) {
