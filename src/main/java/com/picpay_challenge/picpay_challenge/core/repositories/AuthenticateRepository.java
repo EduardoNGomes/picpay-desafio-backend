@@ -6,6 +6,6 @@ import java.util.Optional;
 
 public interface AuthenticateRepository {
 
-	Optional<Authenticate> findByEmail(UniqueEmail Email);
+	Optional<Authenticate> findByEmail(UniqueEmail email);
 
 }
