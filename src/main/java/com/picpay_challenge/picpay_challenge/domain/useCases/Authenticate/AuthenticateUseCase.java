@@ -16,7 +16,7 @@ public class AuthenticateUseCase {
 	private final PasswordCompare passwordCompare;
 
 	@Autowired
-	private AuthenticateUseCase(AuthenticateRepository authenticateRepository, PasswordCompare passwordCompare, Encrypt encrypt) {
+	public AuthenticateUseCase(AuthenticateRepository authenticateRepository, PasswordCompare passwordCompare, Encrypt encrypt) {
 		this.authenticateRepository = authenticateRepository;
 		this.passwordCompare = passwordCompare;
 		this.encrypt = encrypt;
