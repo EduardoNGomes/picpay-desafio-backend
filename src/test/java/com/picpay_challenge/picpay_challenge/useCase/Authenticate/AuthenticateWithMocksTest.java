@@ -10,6 +10,7 @@ import com.picpay_challenge.picpay_challenge.domain.enums.Roles;
 import com.picpay_challenge.picpay_challenge.domain.useCases.Authenticate.AuthenticateUseCase;
 import java.util.Optional;
 import java.util.UUID;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +27,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class AuthenticateWithMocksTest {
 
-	private final Authenticate mockUser;
+	private Authenticate mockUser;
 	@InjectMocks
 	private AuthenticateUseCase useCase;
 	@Mock
@@ -36,7 +37,8 @@ public class AuthenticateWithMocksTest {
 	@Mock
 	private Encrypt encrypt;
 
-	public AuthenticateWithMocksTest() {
+	@BeforeEach
+	public void setup() {
 		this.mockUser = new Authenticate(new UniqueEmail("jonhDoe@email.com"), "123456", Roles.USER, UUID.randomUUID()
 				.toString());
 	}
@@ -79,7 +81,7 @@ public class AuthenticateWithMocksTest {
 
 		var result = useCase.execute(mockUser.getEmail()
 				.toString(), mockUser.getPassword());
-		
+
 		assertThat(result).isInstanceOf(String.class);
 
 		verify(encrypt, times(1)).create(this.mockUser.getId(), this.mockUser.getRole());

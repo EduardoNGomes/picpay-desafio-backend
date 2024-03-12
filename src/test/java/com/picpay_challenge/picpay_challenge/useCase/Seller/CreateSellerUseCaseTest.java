@@ -3,7 +3,7 @@ package com.picpay_challenge.picpay_challenge.useCase.Seller;
 import com.picpay_challenge.picpay_challenge.core.exceptions.SellerAlreadyExistException;
 import com.picpay_challenge.picpay_challenge.domain.useCases.Seller.CreateSellerUseCase;
 import com.picpay_challenge.picpay_challenge.domain.useCases.Seller.dto.CreateSellerUseCaseDTO;
-import com.picpay_challenge.picpay_challenge.test.cryptography.MockPasswordEncoder;
+import com.picpay_challenge.picpay_challenge.test.cryptography.MockPassword;
 import com.picpay_challenge.picpay_challenge.test.repositories.InMemorySellerAccountRepository;
 import com.picpay_challenge.picpay_challenge.test.repositories.InMemorySellerRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,10 +25,10 @@ public class CreateSellerUseCaseTest {
 
 	public CreateSellerUseCaseTest() {
 
-		MockPasswordEncoder mockPasswordEncoder = new MockPasswordEncoder();
+		MockPassword mockPassword = new MockPassword();
 		this.repository = new InMemorySellerRepository();
 		this.sellerAccountRepository = new InMemorySellerAccountRepository();
-		this.useCase = new CreateSellerUseCase(repository, mockPasswordEncoder, sellerAccountRepository);
+		this.useCase = new CreateSellerUseCase(repository, mockPassword, sellerAccountRepository);
 	}
 
 	@BeforeEach
