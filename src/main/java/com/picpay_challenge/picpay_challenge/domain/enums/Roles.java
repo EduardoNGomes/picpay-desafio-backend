@@ -1,16 +1,15 @@
 package com.picpay_challenge.picpay_challenge.domain.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum Roles {
-  USER("USER"),
-  SELLER("SELLER");
+	USER("USER"), SELLER("SELLER");
 
-  private String state;
+	private final String state;
 
-  Roles(String state) {
-    this.state = state;
-  }
+	Roles(String state) {
+		this.state = state;
+	}
 
-  public String getState() {
-    return this.state;
-  }
 }

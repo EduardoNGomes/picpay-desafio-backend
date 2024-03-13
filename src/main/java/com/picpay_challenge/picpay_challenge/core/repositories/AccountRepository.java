@@ -4,7 +4,7 @@ import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.domain.entities.Account;
 import java.util.Optional;
 
-public interface UserAccountRepository {
+public interface AccountRepository {
 
 	Optional<Account> findByOwnerId(UniqueEntityID ownerId);
 

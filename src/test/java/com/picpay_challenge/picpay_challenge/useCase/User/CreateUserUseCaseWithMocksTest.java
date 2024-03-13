@@ -2,7 +2,7 @@ package com.picpay_challenge.picpay_challenge.useCase.User;
 
 import com.picpay_challenge.picpay_challenge.core.cryptography.PasswordEncoder;
 import com.picpay_challenge.picpay_challenge.core.exceptions.UserAlreadyExistException;
-import com.picpay_challenge.picpay_challenge.core.repositories.UserAccountRepository;
+import com.picpay_challenge.picpay_challenge.core.repositories.AccountRepository;
 import com.picpay_challenge.picpay_challenge.core.repositories.UserRepository;
 import com.picpay_challenge.picpay_challenge.domain.useCases.User.CreateUserUseCase;
 import com.picpay_challenge.picpay_challenge.domain.useCases.User.dto.CreateUserUseCaseDTO;
@@ -32,7 +32,7 @@ public class CreateUserUseCaseWithMocksTest {
 	private UserRepository repository;
 
 	@Mock
-	private UserAccountRepository accountRepository;
+	private AccountRepository accountRepository;
 
 	@Mock
 	private PasswordEncoder passwordEncoder;

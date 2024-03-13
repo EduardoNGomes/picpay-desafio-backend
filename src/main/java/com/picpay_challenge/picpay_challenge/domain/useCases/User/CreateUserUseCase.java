@@ -3,7 +3,7 @@ package com.picpay_challenge.picpay_challenge.domain.useCases.User;
 import com.picpay_challenge.picpay_challenge.core.cryptography.PasswordEncoder;
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.exceptions.UserAlreadyExistException;
-import com.picpay_challenge.picpay_challenge.core.repositories.UserAccountRepository;
+import com.picpay_challenge.picpay_challenge.core.repositories.AccountRepository;
 import com.picpay_challenge.picpay_challenge.core.repositories.UserRepository;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCPF;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
@@ -26,16 +26,16 @@ public class CreateUserUseCase {
 	private final PasswordEncoder passwordEncoder;
 
 
-	private final UserAccountRepository userAccountRepository;
+	private final AccountRepository accountRepository;
 
 	@Autowired
-	public CreateUserUseCase(UserRepository userRepository, PasswordEncoder passwordEncoder, UserAccountRepository userAccountRepository) {
+	public CreateUserUseCase(UserRepository userRepository, PasswordEncoder passwordEncoder, AccountRepository accountRepository) {
 
 		this.passwordEncoder = passwordEncoder;
 
 		this.userRepository = userRepository;
 
-		this.userAccountRepository = userAccountRepository;
+		this.accountRepository = accountRepository;
 
 	}
 
@@ -69,7 +69,7 @@ public class CreateUserUseCase {
 
 		var account = Account.create(accountProps, accountId, Roles.USER);
 
-		userAccountRepository.create(account);
+		accountRepository.create(account);
 
 		return "created";
 	}

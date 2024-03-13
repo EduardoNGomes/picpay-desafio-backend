@@ -3,7 +3,7 @@ package com.picpay_challenge.picpay_challenge.domain.useCases.Seller;
 import com.picpay_challenge.picpay_challenge.core.cryptography.PasswordEncoder;
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.exceptions.SellerAlreadyExistException;
-import com.picpay_challenge.picpay_challenge.core.repositories.SellerAccountRepository;
+import com.picpay_challenge.picpay_challenge.core.repositories.AccountRepository;
 import com.picpay_challenge.picpay_challenge.core.repositories.SellerRepository;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCNPJ;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
@@ -22,16 +22,16 @@ public class CreateSellerUseCase {
 
 	private final PasswordEncoder passwordEncoder;
 
-	private final SellerAccountRepository sellerAccountRepository;
+	private final AccountRepository accountRepository;
 
 	@Autowired
-	public CreateSellerUseCase(SellerRepository sellerRepository, PasswordEncoder passwordEncoder, SellerAccountRepository sellerAccountRepository) {
+	public CreateSellerUseCase(SellerRepository sellerRepository, PasswordEncoder passwordEncoder, AccountRepository accountRepository) {
 
 		this.passwordEncoder = passwordEncoder;
 
 		this.sellerRepository = sellerRepository;
 
-		this.sellerAccountRepository = sellerAccountRepository;
+		this.accountRepository = accountRepository;
 
 
 	}
@@ -66,7 +66,7 @@ public class CreateSellerUseCase {
 
 		var account = Account.create(accountProps, accountId, Roles.SELLER);
 
-		sellerAccountRepository.create(account);
+		accountRepository.create(account);
 
 		return "created";
 	}

@@ -1,27 +1,27 @@
 package com.picpay_challenge.picpay_challenge.test.repositories;
 
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
-import com.picpay_challenge.picpay_challenge.core.repositories.SellerAccountRepository;
+import com.picpay_challenge.picpay_challenge.core.repositories.AccountRepository;
 import com.picpay_challenge.picpay_challenge.domain.entities.Account;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import lombok.Getter;
 
 @Getter
-public class InMemorySellerAccountRepository implements
-		SellerAccountRepository {
+public class InMemorySellerAccountRepository implements AccountRepository {
 
 	List<Account> items = new ArrayList<>();
 
 
 	@Override
-	public Account findByOwnerId(UniqueEntityID ownerId) {
-		return null;
+	public Optional<Account> findByOwnerId(UniqueEntityID ownerId) {
+		return Optional.empty();
 	}
 
 	@Override
-	public Account findById(UniqueEntityID ownerId) {
-		return null;
+	public Optional<Account> findById(UniqueEntityID ownerId) {
+		return Optional.empty();
 	}
 
 	@Override
@@ -30,8 +30,14 @@ public class InMemorySellerAccountRepository implements
 	}
 
 	@Override
-	public void increaseBalance(Double value) {
+	public void increaseBalance(Double value, UniqueEntityID id) {
 
 	}
+
+	@Override
+	public void decreaseBalance(Double value, UniqueEntityID ownerId) {
+
+	}
+
 
 }

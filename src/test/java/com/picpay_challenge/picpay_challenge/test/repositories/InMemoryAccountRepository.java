@@ -1,7 +1,7 @@
 package com.picpay_challenge.picpay_challenge.test.repositories;
 
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
-import com.picpay_challenge.picpay_challenge.core.repositories.UserAccountRepository;
+import com.picpay_challenge.picpay_challenge.core.repositories.AccountRepository;
 import com.picpay_challenge.picpay_challenge.domain.entities.Account;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Optional;
 import lombok.Getter;
 
 @Getter
-public class InMemoryUserAccountRepository implements UserAccountRepository {
+public class InMemoryAccountRepository implements AccountRepository {
 
 	List<Account> items = new ArrayList<>();
 

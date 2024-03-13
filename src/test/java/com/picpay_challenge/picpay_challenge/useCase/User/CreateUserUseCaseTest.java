@@ -4,7 +4,7 @@ import com.picpay_challenge.picpay_challenge.core.exceptions.UserAlreadyExistExc
 import com.picpay_challenge.picpay_challenge.domain.useCases.User.CreateUserUseCase;
 import com.picpay_challenge.picpay_challenge.domain.useCases.User.dto.CreateUserUseCaseDTO;
 import com.picpay_challenge.picpay_challenge.test.cryptography.MockPassword;
-import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryUserAccountRepository;
+import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryAccountRepository;
 import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryUserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -18,7 +18,7 @@ public class CreateUserUseCaseTest {
 	private final CreateUserUseCase useCase;
 
 	private final InMemoryUserRepository repository;
-	private final InMemoryUserAccountRepository accountRepository;
+	private final InMemoryAccountRepository accountRepository;
 
 	private CreateUserUseCaseDTO userToCreate;
 
@@ -26,7 +26,7 @@ public class CreateUserUseCaseTest {
 
 		MockPassword mockPassword = new MockPassword();
 		this.repository = new InMemoryUserRepository();
-		this.accountRepository = new InMemoryUserAccountRepository();
+		this.accountRepository = new InMemoryAccountRepository();
 		this.useCase = new CreateUserUseCase(repository, mockPassword, accountRepository);
 	}
 
