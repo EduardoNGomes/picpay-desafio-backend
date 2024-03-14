@@ -14,6 +14,6 @@ public interface AccountRepository {
 
 	void increaseBalance(Double value, UniqueEntityID id);
 
-	void decreaseBalance(Double value, UniqueEntityID ownerId);
+	void decreaseBalance(Double value, UniqueEntityID Id);
 
 }
