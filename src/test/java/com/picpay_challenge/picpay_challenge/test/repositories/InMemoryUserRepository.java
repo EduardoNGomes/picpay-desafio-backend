@@ -17,14 +17,10 @@ public class InMemoryUserRepository implements UserRepository {
 	@Override
 	public Optional<User> findByEmailOrCpf(UniqueEmail email, UniqueCPF cpf) {
 
-		var userExist = this.items.stream().filter(user -> user.getCpf()
+		return this.items.stream().filter(user -> user.getCpf()
 				.equals(cpf.getValue()) | user.getEmail()
-				.equals(email.getValue())).toList();
-		if (userExist.size() > 0) {
-			return Optional.ofNullable(userExist.getFirst());
-		} else {
-			return Optional.empty();
-		}
+				.equals(email.getValue())).findFirst();
+
 
 	}
 
@@ -35,9 +31,11 @@ public class InMemoryUserRepository implements UserRepository {
 	}
 
 	@Override
-	public User findById(UniqueEntityID id) {
+	public Optional<User> findById(UniqueEntityID id) {
+		return this.items.stream()
+				.filter(user -> id.equals(new UniqueEntityID(Optional.ofNullable(user.getIdValue()))))
+				.findFirst();
 
-		return null;
 	}
 
 }

@@ -4,7 +4,6 @@ import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCPF;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
 import com.picpay_challenge.picpay_challenge.domain.entities.User;
-
 import java.util.Optional;
 
 public interface UserRepository {
@@ -13,6 +12,6 @@ public interface UserRepository {
 
 	void create(User user);
 
-	User findById(UniqueEntityID id);
+	Optional<User> findById(UniqueEntityID id);
 
 }

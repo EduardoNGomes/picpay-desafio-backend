@@ -16,14 +16,11 @@ public class InMemorySellerRepository implements SellerRepository {
 
 	@Override
 	public Optional<Seller> findByEmailOrCnpj(UniqueEmail email, UniqueCNPJ cnpj) {
-		var userExist = this.items.stream().filter(user -> user.getCnpj()
+
+		return this.items.stream().filter(user -> user.getCnpj()
 				.equals(cnpj.getValue()) | user.getEmail()
-				.equals(email.getValue())).toList();
-		if (userExist.size() > 0) {
-			return Optional.ofNullable(userExist.getFirst());
-		} else {
-			return Optional.empty();
-		}
+				.equals(email.getValue())).findFirst();
+
 	}
 
 	@Override
@@ -32,8 +29,10 @@ public class InMemorySellerRepository implements SellerRepository {
 	}
 
 	@Override
-	public Seller findById(UniqueEntityID id) {
-		return null;
+	public Optional<Seller> findById(UniqueEntityID id) {
+		return this.items.stream()
+				.filter(user -> id.equals(new UniqueEntityID(Optional.ofNullable(user.getIdValue()))))
+				.findFirst();
 	}
 
 }

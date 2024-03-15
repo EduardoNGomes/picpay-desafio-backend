@@ -12,6 +12,6 @@ public interface SellerRepository {
 
 	void create(Seller seller);
 
-	Seller findById(UniqueEntityID id);
+	Optional<Seller> findById(UniqueEntityID id);
 
 }

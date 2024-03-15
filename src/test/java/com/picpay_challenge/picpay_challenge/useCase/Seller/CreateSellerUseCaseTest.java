@@ -4,7 +4,7 @@ import com.picpay_challenge.picpay_challenge.core.exceptions.SellerAlreadyExistE
 import com.picpay_challenge.picpay_challenge.domain.useCases.Seller.CreateSellerUseCase;
 import com.picpay_challenge.picpay_challenge.domain.useCases.Seller.dto.CreateSellerUseCaseDTO;
 import com.picpay_challenge.picpay_challenge.test.cryptography.MockPassword;
-import com.picpay_challenge.picpay_challenge.test.repositories.InMemorySellerAccountRepository;
+import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryAccountRepository;
 import com.picpay_challenge.picpay_challenge.test.repositories.InMemorySellerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -18,7 +18,7 @@ public class CreateSellerUseCaseTest {
 
 	private final InMemorySellerRepository repository;
 
-	private final InMemorySellerAccountRepository sellerAccountRepository;
+	private final InMemoryAccountRepository accountRepository;
 
 
 	private CreateSellerUseCaseDTO sellerToCreate;
@@ -27,8 +27,8 @@ public class CreateSellerUseCaseTest {
 
 		MockPassword mockPassword = new MockPassword();
 		this.repository = new InMemorySellerRepository();
-		this.sellerAccountRepository = new InMemorySellerAccountRepository();
-		this.useCase = new CreateSellerUseCase(repository, mockPassword, sellerAccountRepository);
+		this.accountRepository = new InMemoryAccountRepository();
+		this.useCase = new CreateSellerUseCase(repository, mockPassword, accountRepository);
 	}
 
 	@BeforeEach
@@ -47,7 +47,7 @@ public class CreateSellerUseCaseTest {
 
 		assertThat(result).isEqualTo("created");
 		assertThat(repository.getItems().size()).isEqualTo(1);
-		assertThat(sellerAccountRepository.getItems().size()).isEqualTo(1);
+		assertThat(accountRepository.getItems().size()).isEqualTo(1);
 
 		assertThat(repository.getItems().getFirst()
 				.getPassword()).isEqualTo("123456-hashed");
