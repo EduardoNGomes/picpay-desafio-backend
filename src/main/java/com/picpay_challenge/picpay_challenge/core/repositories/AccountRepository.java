@@ -8,7 +8,7 @@ public interface AccountRepository {
 
 	Optional<Account> findByOwnerId(UniqueEntityID ownerId);
 
-	Optional<Account> findById(UniqueEntityID ownerId);
+	Optional<Account> findById(UniqueEntityID id);
 
 	void create(Account account);
 
