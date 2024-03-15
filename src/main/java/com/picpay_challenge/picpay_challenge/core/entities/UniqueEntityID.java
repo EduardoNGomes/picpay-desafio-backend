@@ -30,7 +30,7 @@ public class UniqueEntityID {
 
 	public boolean equals(UniqueEntityID id) {
 
-		return id.toValue() == this.value;
+		return id.toString().equals(this.toString());
 	}
 
 }

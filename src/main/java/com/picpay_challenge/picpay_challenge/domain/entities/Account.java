@@ -35,7 +35,7 @@ public class Account extends Entity<IAccount> {
 		return this.props.balance;
 	}
 
-	public UUID geOwnerIdValue() {
+	public UUID getOwnerIdValue() {
 
 		return this.props.ownerID.toValue();
 	}

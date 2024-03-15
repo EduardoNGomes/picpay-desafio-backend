@@ -8,17 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class InMemoryAccountRepository implements AccountRepository {
 
 	List<Account> items = new ArrayList<>();
 
 	@Override
 	public Optional<Account> findByOwnerId(UniqueEntityID ownerId) {
+
 		return this.items.stream()
 				.filter(account -> ownerId.equals(new UniqueEntityID(Optional.ofNullable(account.getOwnerIdValue()))))
 				.findFirst();
+
 
 	}
 
