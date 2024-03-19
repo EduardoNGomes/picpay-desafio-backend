@@ -5,7 +5,7 @@ import com.picpay_challenge.picpay_challenge.core.exceptions.PermissionDeniedExc
 import com.picpay_challenge.picpay_challenge.core.exceptions.ResourceNotFound;
 import com.picpay_challenge.picpay_challenge.core.repositories.AccountRepository;
 import com.picpay_challenge.picpay_challenge.core.validation.ApproveTransfer;
-import com.picpay_challenge.picpay_challenge.domain.useCases.Transfer.TransferUseCase;
+import com.picpay_challenge.picpay_challenge.domain.transaction.application.useCase.TransferUseCase;
 import com.picpay_challenge.picpay_challenge.factory.AccountFactory;
 import java.util.Optional;
 import java.util.UUID;

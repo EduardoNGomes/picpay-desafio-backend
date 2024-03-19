@@ -1,7 +1,7 @@
 package com.picpay_challenge.picpay_challenge.test.cryptography;
 
 import com.picpay_challenge.picpay_challenge.core.cryptography.Encrypt;
-import com.picpay_challenge.picpay_challenge.domain.enums.Roles;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.enums.Roles;
 
 public class MockEncrypt implements Encrypt {
 

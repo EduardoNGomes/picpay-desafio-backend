@@ -1,4 +1,4 @@
-package com.picpay_challenge.picpay_challenge.domain.useCases.Seller.dto;
+package com.picpay_challenge.picpay_challenge.domain.user.application.User.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateSellerUseCaseDTO {
+public class CreateUserUseCaseDTO {
 
-	private String cnpj;
+	private String cpf;
 	private String firstName;
 	private String lastName;
 	private String email;

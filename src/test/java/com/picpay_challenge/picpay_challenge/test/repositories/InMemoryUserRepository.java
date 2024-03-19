@@ -4,7 +4,7 @@ import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.repositories.UserRepository;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCPF;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
-import com.picpay_challenge.picpay_challenge.domain.entities.User;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

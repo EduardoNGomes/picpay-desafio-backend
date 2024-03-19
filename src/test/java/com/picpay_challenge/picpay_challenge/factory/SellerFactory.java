@@ -3,9 +3,9 @@ package com.picpay_challenge.picpay_challenge.factory;
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCNPJ;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
-import com.picpay_challenge.picpay_challenge.domain.entities.Seller;
-import com.picpay_challenge.picpay_challenge.domain.interfaces.IUserSeller;
-import com.picpay_challenge.picpay_challenge.domain.useCases.Seller.dto.CreateSellerUseCaseDTO;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities.Seller;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.interfaces.IUserSeller;
+import com.picpay_challenge.picpay_challenge.domain.user.application.Seller.dto.CreateSellerUseCaseDTO;
 import java.util.Optional;
 import java.util.UUID;
 

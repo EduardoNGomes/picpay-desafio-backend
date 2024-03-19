@@ -2,8 +2,8 @@ package com.picpay_challenge.picpay_challenge.useCase.Transfer;
 
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.validation.ApproveTransfer;
-import com.picpay_challenge.picpay_challenge.domain.entities.Account;
-import com.picpay_challenge.picpay_challenge.domain.useCases.Transfer.TransferUseCase;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities.Account;
+import com.picpay_challenge.picpay_challenge.domain.transaction.application.useCase.TransferUseCase;
 import com.picpay_challenge.picpay_challenge.factory.AccountFactory;
 import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryAccountRepository;
 import com.picpay_challenge.picpay_challenge.test.validation.MockApproveTransfer;

@@ -1,4 +1,4 @@
-package com.picpay_challenge.picpay_challenge.domain.useCases.Seller;
+package com.picpay_challenge.picpay_challenge.domain.user.application.Seller;
 
 import com.picpay_challenge.picpay_challenge.core.cryptography.PasswordEncoder;
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
@@ -7,12 +7,12 @@ import com.picpay_challenge.picpay_challenge.core.repositories.AccountRepository
 import com.picpay_challenge.picpay_challenge.core.repositories.SellerRepository;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCNPJ;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
-import com.picpay_challenge.picpay_challenge.domain.entities.Account;
-import com.picpay_challenge.picpay_challenge.domain.entities.Seller;
-import com.picpay_challenge.picpay_challenge.domain.enums.Roles;
-import com.picpay_challenge.picpay_challenge.domain.interfaces.IAccount;
-import com.picpay_challenge.picpay_challenge.domain.interfaces.IUserSeller;
-import com.picpay_challenge.picpay_challenge.domain.useCases.Seller.dto.CreateSellerUseCaseDTO;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities.Account;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities.Seller;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.enums.Roles;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.interfaces.IAccount;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.interfaces.IUserSeller;
+import com.picpay_challenge.picpay_challenge.domain.user.application.Seller.dto.CreateSellerUseCaseDTO;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;

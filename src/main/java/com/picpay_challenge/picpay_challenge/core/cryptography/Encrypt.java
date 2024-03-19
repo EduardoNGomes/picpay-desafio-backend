@@ -1,6 +1,6 @@
 package com.picpay_challenge.picpay_challenge.core.cryptography;
 
-import com.picpay_challenge.picpay_challenge.domain.enums.Roles;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.enums.Roles;
 
 public interface Encrypt {
 

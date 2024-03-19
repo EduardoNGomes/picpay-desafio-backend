@@ -1,7 +1,7 @@
-package com.picpay_challenge.picpay_challenge.domain.entities;
+package com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities;
 
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
-import com.picpay_challenge.picpay_challenge.domain.enums.Roles;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.enums.Roles;
 import lombok.Builder;
 import lombok.Getter;
 

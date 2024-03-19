@@ -1,9 +1,9 @@
-package com.picpay_challenge.picpay_challenge.domain.entities;
+package com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities;
 
 import com.picpay_challenge.picpay_challenge.core.entities.Entity;
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
-import com.picpay_challenge.picpay_challenge.domain.enums.Roles;
-import com.picpay_challenge.picpay_challenge.domain.interfaces.IAccount;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.enums.Roles;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.interfaces.IAccount;
 import java.util.Optional;
 import java.util.UUID;
 

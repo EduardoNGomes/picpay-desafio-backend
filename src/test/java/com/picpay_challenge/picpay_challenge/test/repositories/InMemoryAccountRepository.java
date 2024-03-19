@@ -2,8 +2,8 @@ package com.picpay_challenge.picpay_challenge.test.repositories;
 
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.repositories.AccountRepository;
-import com.picpay_challenge.picpay_challenge.domain.entities.Account;
-import com.picpay_challenge.picpay_challenge.domain.interfaces.IAccount;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities.Account;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.interfaces.IAccount;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

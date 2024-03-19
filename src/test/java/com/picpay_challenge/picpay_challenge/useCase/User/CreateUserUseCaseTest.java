@@ -1,8 +1,8 @@
 package com.picpay_challenge.picpay_challenge.useCase.User;
 
 import com.picpay_challenge.picpay_challenge.core.exceptions.UserAlreadyExistException;
-import com.picpay_challenge.picpay_challenge.domain.useCases.User.CreateUserUseCase;
-import com.picpay_challenge.picpay_challenge.domain.useCases.User.dto.CreateUserUseCaseDTO;
+import com.picpay_challenge.picpay_challenge.domain.user.application.User.CreateUserUseCase;
+import com.picpay_challenge.picpay_challenge.domain.user.application.User.dto.CreateUserUseCaseDTO;
 import com.picpay_challenge.picpay_challenge.test.cryptography.MockPassword;
 import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryAccountRepository;
 import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryUserRepository;

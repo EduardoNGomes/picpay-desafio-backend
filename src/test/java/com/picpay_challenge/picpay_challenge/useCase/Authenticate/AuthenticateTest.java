@@ -3,9 +3,9 @@ package com.picpay_challenge.picpay_challenge.useCase.Authenticate;
 
 import com.picpay_challenge.picpay_challenge.core.exceptions.CredentialsInvalidException;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
-import com.picpay_challenge.picpay_challenge.domain.entities.Authenticate;
-import com.picpay_challenge.picpay_challenge.domain.enums.Roles;
-import com.picpay_challenge.picpay_challenge.domain.useCases.Authenticate.AuthenticateUseCase;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities.Authenticate;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.enums.Roles;
+import com.picpay_challenge.picpay_challenge.domain.user.application.Authenticate.AuthenticateUseCase;
 import com.picpay_challenge.picpay_challenge.test.cryptography.MockEncrypt;
 import com.picpay_challenge.picpay_challenge.test.cryptography.MockPassword;
 import com.picpay_challenge.picpay_challenge.test.repositories.InMemoryAuthenticateRepository;

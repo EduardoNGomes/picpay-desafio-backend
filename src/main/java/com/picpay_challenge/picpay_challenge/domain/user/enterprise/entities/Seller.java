@@ -1,9 +1,9 @@
-package com.picpay_challenge.picpay_challenge.domain.entities;
+package com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities;
 
 import com.picpay_challenge.picpay_challenge.core.entities.Entity;
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCNPJ;
-import com.picpay_challenge.picpay_challenge.domain.interfaces.IUserSeller;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.interfaces.IUserSeller;
 import java.util.Optional;
 
 public class Seller extends Entity<IUserSeller> {

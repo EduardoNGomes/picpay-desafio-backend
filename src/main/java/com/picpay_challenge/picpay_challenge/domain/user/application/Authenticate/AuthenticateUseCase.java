@@ -1,4 +1,4 @@
-package com.picpay_challenge.picpay_challenge.domain.useCases.Authenticate;
+package com.picpay_challenge.picpay_challenge.domain.user.application.Authenticate;
 
 import com.picpay_challenge.picpay_challenge.core.cryptography.Encrypt;
 import com.picpay_challenge.picpay_challenge.core.cryptography.PasswordCompare;

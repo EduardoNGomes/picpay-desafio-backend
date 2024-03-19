@@ -1,4 +1,4 @@
-package com.picpay_challenge.picpay_challenge.domain.enums;
+package com.picpay_challenge.picpay_challenge.domain.user.enterprise.enums;
 
 import lombok.Getter;
 

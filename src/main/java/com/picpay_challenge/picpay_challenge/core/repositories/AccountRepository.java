@@ -1,7 +1,7 @@
 package com.picpay_challenge.picpay_challenge.core.repositories;
 
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
-import com.picpay_challenge.picpay_challenge.domain.entities.Account;
+import com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities.Account;
 import java.util.Optional;
 
 public interface AccountRepository {
