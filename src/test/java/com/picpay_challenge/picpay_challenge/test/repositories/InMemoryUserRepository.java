@@ -1,9 +1,12 @@
 package com.picpay_challenge.picpay_challenge.test.repositories;
 
 import com.picpay_challenge.picpay_challenge.core.entities.UniqueEntityID;
+import com.picpay_challenge.picpay_challenge.core.events.EventDispatcher;
 import com.picpay_challenge.picpay_challenge.core.repositories.UserRepository;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueCPF;
 import com.picpay_challenge.picpay_challenge.core.vo.UniqueEmail;
+import com.picpay_challenge.picpay_challenge.domain.notification.application.CreateUserNotificationUseCase;
+import com.picpay_challenge.picpay_challenge.domain.notification.events.SendNotificationEvent;
 import com.picpay_challenge.picpay_challenge.domain.user.enterprise.entities.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,7 @@ public class InMemoryUserRepository implements UserRepository {
 	public void create(User user) {
 
 		this.items.add(user);
+		EventDispatcher.notify(new SendNotificationEvent(new CreateUserNotificationUseCase()));
 	}
 
 	@Override
